@@ -3,7 +3,7 @@ FROM openjdk:17-jdk-slim
 
 # set shell to bash
 # source: https://stackoverflow.com/a/40944512/3128926
-RUN apk update && apk add bash
+RUN apt update && apt-get install -y bash
 
 # Set the working directory to /app
 WORKDIR /app
