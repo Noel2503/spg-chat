@@ -7,7 +7,6 @@ pipeline {
         dockerImage = ''
         docker_version = "${BUILD_NUMBER}"
         deployment_file = "${WORKSPACE}/deployment.yaml"
-        service_file = "${WORKSPACE}/service.yaml"
         KUBECONFIG_CREDENTIAL_ID = 'kubeconfig'
     }
     agent any
@@ -15,7 +14,7 @@ pipeline {
         stage('Cloning our Git') {
             steps {
                 git(
-                    url: 'https://github.com/Noel2503/jenkins-spgboot.git',
+                    url: 'https://github.com/Noel2503/spg-chat.git',
                     credentialsId: 'git-credential',
                     branch: 'main'
                 )
@@ -67,7 +66,7 @@ pipeline {
                         git config --global user.email "noelyesuraj25@gmail.com"
                         git add ${deployment_file}
                         git commit -m "Updated deployment docker file"
-                        git push https://$git_token_test@github.com/Noel2503/jenkins-spgboot.git HEAD:main
+                        git push https://$git_token_test@github.com/Noel2503/spg-chat.git HEAD:main
                     '''
                 }
             }
