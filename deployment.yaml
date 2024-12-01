@@ -31,7 +31,7 @@ spec:
         app: spg-chat
     spec:
       containers:
-      - image: noel135/img-repo:34
+      - image: noel135/img-repo:50
         imagePullPolicy: Always
         name: spg-chat
         ports:
