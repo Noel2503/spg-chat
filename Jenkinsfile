@@ -28,6 +28,16 @@ pipeline {
                 }
             }
         }
+        stage('Maven Deploy to Nexus') {
+            steps {
+                withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+                    script {
+                        // Deploy the artifact to Nexus
+                        sh 'mvn deploy'
+                    }
+                }
+            }
+        }
         stage('Building our image') {
             steps {
                 script {
