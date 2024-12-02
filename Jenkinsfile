@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Maven Deploy to Nexus') {
             steps {
-                withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+                withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'OpenJDK8', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                     script {
                         // Deploy the artifact to Nexus
                         sh 'mvn deploy'
